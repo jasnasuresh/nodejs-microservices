@@ -9,7 +9,7 @@ var urlParser = bodyParser.urlencoded({extended:false});
 //app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, 'frontend')));
 const hostname = '0.0.0.0';
-var router = express.Router()
+
 
 const http = require('http').Server(app)
 var urlParser = bodyParser.urlencoded({extended:false});
@@ -44,7 +44,7 @@ client.connect(err => {
 
 
 
-/*app.get('/',(req,res) => {
+app.get('/',(req,res) => {
     console.log(req.params);
     //res.sendFile('ind2.html', { root: __dirname });    // var d=window.document.getElementById('login_input').reset();
     res.sendFile(path.join(__dirname,'frontend/ind2.html'));
@@ -56,7 +56,7 @@ client.connect(err => {
     
     //res.json(db.addBook(req.body));
  
-});*/
+});
 
 app.post("/books",urlParser,async(req,res) => {
     var newBook = {
@@ -79,7 +79,7 @@ app.post("/books",urlParser,async(req,res) => {
     })
     res.send("A new book is created")
 })
-/*app.get('/book1',function(req,res) {
+app.get('/book1',function(req,res) {
 
     //console.log(req.params);
     //res.sendFile('books.html', { root: __dirname }); 
@@ -97,7 +97,7 @@ app.post("/books",urlParser,async(req,res) => {
     //var q = url.parse(adr, true);
     
   
-  });*/
+  });
 
 
 app.get("/booklist", (req,res) => {
@@ -143,4 +143,3 @@ app.listen(3000,hostname, () => {
     console.log("Up and running! -- This is our Books service");
 })
 
-module.exports = router
